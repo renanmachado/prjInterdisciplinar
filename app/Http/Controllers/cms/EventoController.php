@@ -17,6 +17,7 @@ class EventoController extends Controller
 
     public function __construct(Evento $evento)
     {   
+        $this->middleware('auth');
         $this->evento = $evento;
     }
 
@@ -25,7 +26,7 @@ class EventoController extends Controller
         
         $eventos  = $this->evento->get();
 
-        return view('cms.pages.evento.list', compact($eventos));
+        return view('cms.pages.evento.list', compact('eventos'));
     }
 
     public function create()

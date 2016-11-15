@@ -26,6 +26,11 @@
         <link href="/cms/assets/plugins/weather-icons-master/css/weather-icons.min.css" rel="stylesheet" type="text/css"/>   
         <link href="/cms/assets/plugins/metrojs/MetroJs.min.css" rel="stylesheet" type="text/css"/>  
         <link href="/cms/assets/plugins/toastr/toastr.min.css" rel="stylesheet" type="text/css"/>    
+
+        <link href="/cms/assets/plugins/datatables/css/jquery.datatables.min.css" rel="stylesheet" type="text/css"/>    
+        <link href="/cms/assets/plugins/datatables/css/jquery.datatables_themeroller.css" rel="stylesheet" type="text/css"/> 
+        <link href="/cms/assets/plugins/x-editable/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet" type="text/css">
+        <link href="/cms/assets/plugins/bootstrap-datepicker/css/datepicker3.css" rel="stylesheet" type="text/css"/>
             
         <!-- Theme Styles -->
         <link href="/cms/assets/css/modern.css" rel="stylesheet" type="text/css"/>
@@ -180,26 +185,17 @@
                                 
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown">
-                                        <span class="user-name">Admin<i class="fa fa-angle-down"></i></span>
+                                        <span class="user-name">{{ Auth::user()->name }}<i class="fa fa-angle-down"></i></span>
                                         <img class="img-circle avatar" src="/cms/assets/images/avatar6.png" width="40" height="40" alt="">
                                     </a>
                                     <ul class="dropdown-menu dropdown-list" role="menu">
-                                        <li role="presentation"><a href="profile.html"><i class="fa fa-user"></i>Profile</a></li>
-                                        <li role="presentation"><a href="calendar.html"><i class="fa fa-calendar"></i>Calendar</a></li>
-                                        <li role="presentation"><a href="inbox.html"><i class="fa fa-envelope"></i>Inbox<span class="badge badge-success pull-right">4</span></a></li>
-                                        <li role="presentation" class="divider"></li>
-                                        <li role="presentation"><a href="lock-screen.html"><i class="fa fa-lock"></i>Lock screen</a></li>
-                                        <li role="presentation"><a href="login.html"><i class="fa fa-sign-out m-r-xs"></i>Log out</a></li>
+                                        <li role="presentation"><a href="/admin/minha-conta"><i class="fa fa-user"></i>Minha conta</a></li>
+                                        <li role="presentation"><a href="/admin/sair"><i class="fa fa-sign-out m-r-xs"></i>Sair</a></li>
                                     </ul>
                                 </li>
                                 <li>
-                                    <a href="login.html" class="log-out waves-effect waves-button waves-classic">
-                                        <span><i class="fa fa-sign-out m-r-xs"></i>Log out</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0);" class="waves-effect waves-button waves-classic" id="showRight">
-                                        <i class="fa fa-comments"></i>
+                                    <a href="/admin/sair" class="log-out waves-effect waves-button waves-classic">
+                                        <span><i class="fa fa-sign-out m-r-xs"></i>Sair</span>
                                     </a>
                                 </li>
                             </ul><!-- Nav -->
@@ -216,16 +212,22 @@
                                     <img src="/cms/assets/images/avatar6.png" class="img-circle img-responsive" alt="">
                                 </div>
                                 <div class="sidebar-profile-details">
-                                    <span>Admin <br><small>CMS</small></span>
+                                    <span>{{ Auth::user()->name }} <br><small>ADMIN</small></span>
                                 </div>
                             </a>
                         </div>
                     </div>
                     <ul class="menu accordion-menu">
-                        <li class="active"><a href="index.html" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-home"></span><p>Dashboard</p></a></li>
-                        <li><a href="profile.html" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-user"></span><p>Profile</p></a></li>
-                        <li><a href="/admin/evento" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-user"></span><p>Eventos</p></a></li>
-                        
+                        <li class=""><a href="/admin" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-home"></span><p>Dashboard</p></a></li>
+                        <li class="{{ preg_match("/admin\/minha-conta/",Route::getCurrentRoute()->getPath()) ? 'active' : '' }}"> <a href="/admin/minha-conta" class="waves-effect waves-button"><span class="menu-icon  glyphicon glyphicon-user"></span><p>Minha Conta</p></a></li>
+                        <li class="{{ preg_match("/admin\/evento/",Route::getCurrentRoute()->getPath()) ? 'active' : '' }}"> <a href="/admin/evento" class="waves-effect waves-button"><span class="menu-icon  icon-calendar "></span><p>Eventos</p></a></li>
+                        <li class="{{ preg_match("/admin\/palestra/",Route::getCurrentRoute()->getPath()) ? 'active' : '' }}"> <a href="/admin/palestra" class="waves-effect waves-button"><span class="menu-icon icon-pin"></span><p>Palestras</p></a></li>
+                        <li class="{{ preg_match("/admin\/sala/",Route::getCurrentRoute()->getPath()) ? 'active' : '' }}"> <a href="/admin/sala" class="waves-effect waves-button"><span class="menu-icon icon-home"></span><p>Salas</p></a></li>
+                        <li class="{{ preg_match("/admin\/palestrante/",Route::getCurrentRoute()->getPath()) ? 'active' : '' }}"> <a href="/admin/palestrante" class="waves-effect waves-button"><span class="menu-icon icon-graduation"></span><p>Palestrantes</p></a></li>
+                        <li class="{{ preg_match("/admin\/recurso/",Route::getCurrentRoute()->getPath()) ? 'active' : '' }}"> <a href="/admin/recurso" class="waves-effect waves-button"><span class="menu-icon fa fa-tasks"></span><p>Recursos</p></a></li>
+                   
+                        <li class="{{ preg_match("/admin\/equipe/",Route::getCurrentRoute()->getPath()) ? 'active' : '' }}"> <a href="/admin/equipe" class="waves-effect waves-button"><span class="menu-icon icon-users"></span><p>Equipes</p></a></li>
+                        <li class="{{ preg_match("/admin\/aluno/",Route::getCurrentRoute()->getPath()) ? 'active' : '' }}"> <a href="/admin/aluno" class="waves-effect waves-button"><span class="menu-icon fa fa-group"></span><p>Alunos</p></a></li>
                     </ul>
                 </div><!-- Page Sidebar Inner -->
             </div><!-- Page Sidebar -->
@@ -234,7 +236,7 @@
                 @yield('content')
                 
                 <div class="page-footer">
-                    <p class="no-s">2016 &copy; Renan.</p>
+                    <p class="no-s">2016 &copy; Renan Machado.</p>
                 </div>
             </div><!-- Page Inner -->
         </main><!-- Page Content -->
@@ -309,19 +311,16 @@
         <script src="/cms/assets/plugins/offcanvasmenueffects/js/classie.js"></script>
         <script src="/cms/assets/plugins/offcanvasmenueffects/js/main.js"></script>
         <script src="/cms/assets/plugins/waves/waves.min.js"></script>
-        <script src="/cms/assets/plugins/3d-bold-navigation/js/main.js"></script>
-        <script src="/cms/assets/plugins/waypoints/jquery.waypoints.min.js"></script>
-        <script src="/cms/assets/plugins/jquery-counterup/jquery.counterup.min.js"></script>
-        <script src="/cms/assets/plugins/toastr/toastr.min.js"></script>
-        <script src="/cms/assets/plugins/flot/jquery.flot.min.js"></script>
-        <script src="/cms/assets/plugins/flot/jquery.flot.time.min.js"></script>
-        <script src="/cms/assets/plugins/flot/jquery.flot.symbol.min.js"></script>
-        <script src="/cms/assets/plugins/flot/jquery.flot.resize.min.js"></script>
-        <script src="/cms/assets/plugins/flot/jquery.flot.tooltip.min.js"></script>
-        <script src="/cms/assets/plugins/curvedlines/curvedLines.js"></script>
-        <script src="/cms/assets/plugins/metrojs/MetroJs.min.js"></script>
+        <script src="/cms/assets/plugins/3d-bold-navigation/js/main.js"></script> 
+
+
+        <script src="/cms/assets/plugins/jquery-mockjax-master/jquery.mockjax.js"></script>
+        <script src="/cms/assets/plugins/moment/moment.js"></script>
+        <script src="/cms/assets/plugins/datatables/js/jquery.datatables.min.js"></script>
+        <script src="/cms/assets/plugins/x-editable/bootstrap3-editable/js/bootstrap-editable.js"></script>
+        <script src="/cms/assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
         <script src="/cms/assets/js/modern.js"></script>
-        <script src="/cms/assets/js/pages/dashboard.js"></script>
+        <script src="/cms/assets/js/pages/table-data.js"></script>      
 
         @yield('scripts')
         

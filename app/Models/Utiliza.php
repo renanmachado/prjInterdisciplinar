@@ -8,6 +8,5 @@ class Utiliza extends Model {
 
 	protected $table = 'Utiliza';
 	protected $fillable = ['Id_Palestra', 'Id_Equipe'];
-
-    
+	   
 }

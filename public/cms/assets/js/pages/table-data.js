@@ -87,7 +87,19 @@ $(document).ready(function() {
     });
     
     // Datatables
-    $('#example').DataTable();
+    $('#example').DataTable({
+        "aoColumnDefs" : [ {
+            "bSortable" : false,
+            "aTargets" : [ "no-sort" ]
+        }], 
+        "oLanguage": {
+            "sLengthMenu": "_MENU_ ",
+            "sInfo": "Mostrando <b>_START_ de _END_</b> de _TOTAL_ registros",
+            "sSearch" : "Busca"
+        }
+    });
+
+
     $('#example-editable').DataTable();
     
     var table = $('#example2').DataTable({

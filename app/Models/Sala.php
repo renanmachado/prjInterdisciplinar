@@ -8,6 +8,5 @@ class Sala extends Model {
 
 	protected $table = 'Sala';
 	protected $fillable = ['Id_Sala', 'Descricao', 'Adaptada'];
-
-    
+	
 }
