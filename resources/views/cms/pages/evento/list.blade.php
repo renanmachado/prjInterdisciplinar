@@ -13,7 +13,7 @@
 	    <div class="page-breadcrumb">
 	        <ol class="breadcrumb">
 	            <li><a href="/admin">Home</a></li>
-	            <li class="active">Dashboard</li>
+	            <li class="active">Eventos</li>
 	        </ol>
 	    </div>
 	</div>

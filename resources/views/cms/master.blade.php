@@ -13,27 +13,27 @@
         
         <!-- Styles -->
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
-        <link href="cms/assets/plugins/pace-master/themes/blue/pace-theme-flash.css" rel="stylesheet"/>
-        <link href="cms/assets/plugins/uniform/css/uniform.default.min.css" rel="stylesheet"/>
-        <link href="cms/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-        <link href="cms/assets/plugins/fontawesome/css/font-awesome.css" rel="stylesheet" type="text/css"/>
-        <link href="cms/assets/plugins/line-icons/simple-line-icons.css" rel="stylesheet" type="text/css"/> 
-        <link href="cms/assets/plugins/offcanvasmenueffects/css/menu_cornerbox.css" rel="stylesheet" type="text/css"/>  
-        <link href="cms/assets/plugins/waves/waves.min.css" rel="stylesheet" type="text/css"/>  
-        <link href="cms/assets/plugins/switchery/switchery.min.css" rel="stylesheet" type="text/css"/>
-        <link href="cms/assets/plugins/3d-bold-navigation/css/style.css" rel="stylesheet" type="text/css"/>
-        <link href="cms/assets/plugins/slidepushmenus/css/component.css" rel="stylesheet" type="text/css"/> 
-        <link href="cms/assets/plugins/weather-icons-master/css/weather-icons.min.css" rel="stylesheet" type="text/css"/>   
-        <link href="cms/assets/plugins/metrojs/MetroJs.min.css" rel="stylesheet" type="text/css"/>  
-        <link href="cms/assets/plugins/toastr/toastr.min.css" rel="stylesheet" type="text/css"/>    
+        <link href="/cms/assets/plugins/pace-master/themes/blue/pace-theme-flash.css" rel="stylesheet"/>
+        <link href="/cms/assets/plugins/uniform/css/uniform.default.min.css" rel="stylesheet"/>
+        <link href="/cms/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="/cms/assets/plugins/fontawesome/css/font-awesome.css" rel="stylesheet" type="text/css"/>
+        <link href="/cms/assets/plugins/line-icons/simple-line-icons.css" rel="stylesheet" type="text/css"/> 
+        <link href="/cms/assets/plugins/offcanvasmenueffects/css/menu_cornerbox.css" rel="stylesheet" type="text/css"/>  
+        <link href="/cms/assets/plugins/waves/waves.min.css" rel="stylesheet" type="text/css"/>  
+        <link href="/cms/assets/plugins/switchery/switchery.min.css" rel="stylesheet" type="text/css"/>
+        <link href="/cms/assets/plugins/3d-bold-navigation/css/style.css" rel="stylesheet" type="text/css"/>
+        <link href="/cms/assets/plugins/slidepushmenus/css/component.css" rel="stylesheet" type="text/css"/> 
+        <link href="/cms/assets/plugins/weather-icons-master/css/weather-icons.min.css" rel="stylesheet" type="text/css"/>   
+        <link href="/cms/assets/plugins/metrojs/MetroJs.min.css" rel="stylesheet" type="text/css"/>  
+        <link href="/cms/assets/plugins/toastr/toastr.min.css" rel="stylesheet" type="text/css"/>    
             
         <!-- Theme Styles -->
-        <link href="cms/assets/css/modern.css" rel="stylesheet" type="text/css"/>
-        <link href="cms/assets/css/themes/white.css" class="theme-color" rel="stylesheet" type="text/css"/>
-        <link href="cms/assets/css/custom.css" rel="stylesheet" type="text/css"/>
+        <link href="/cms/assets/css/modern.css" rel="stylesheet" type="text/css"/>
+        <link href="/cms/assets/css/themes/white.css" class="theme-color" rel="stylesheet" type="text/css"/>
+        <link href="/cms/assets/css/custom.css" rel="stylesheet" type="text/css"/>
         
-        <script src="cms/assets/plugins/3d-bold-navigation/js/modernizr.js"></script>
-        <script src="cms/assets/plugins/offcanvasmenueffects/js/snap.svg-min.js"></script>
+        <script src="/cms/assets/plugins/3d-bold-navigation/js/modernizr.js"></script>
+        <script src="/cms/assets/plugins/offcanvasmenueffects/js/snap.svg-min.js"></script>
         
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -51,7 +51,7 @@
         
         <div class="menu-wrap">
             <nav class="profile-menu">
-                <div class="profile"><img src="cms/assets/images/avatar6.png" width="52" alt="David Green"/><span>Admin</span></div>
+                <div class="profile"><img src="/cms/assets/images/avatar6.png" width="52" alt="David Green"/><span>Admin</span></div>
                 <div class="profile-menu-list">
                     <!-- <a href="#"><i class="fa fa-star"></i><span>Favorites</span></a>
                     <a href="#"><i class="fa fa-bell"></i><span>Alerts</span></a>
@@ -181,7 +181,7 @@
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown">
                                         <span class="user-name">Admin<i class="fa fa-angle-down"></i></span>
-                                        <img class="img-circle avatar" src="cms/assets/images/avatar6.png" width="40" height="40" alt="">
+                                        <img class="img-circle avatar" src="/cms/assets/images/avatar6.png" width="40" height="40" alt="">
                                     </a>
                                     <ul class="dropdown-menu dropdown-list" role="menu">
                                         <li role="presentation"><a href="profile.html"><i class="fa fa-user"></i>Profile</a></li>
@@ -213,7 +213,7 @@
                         <div class="sidebar-profile">
                             <a href="javascript:void(0);" id="profile-menu-link">
                                 <div class="sidebar-profile-image">
-                                    <img src="cms/assets/images/avatar6.png" class="img-circle img-responsive" alt="">
+                                    <img src="/cms/assets/images/avatar6.png" class="img-circle img-responsive" alt="">
                                 </div>
                                 <div class="sidebar-profile-details">
                                     <span>Admin <br><small>CMS</small></span>
@@ -224,13 +224,8 @@
                     <ul class="menu accordion-menu">
                         <li class="active"><a href="index.html" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-home"></span><p>Dashboard</p></a></li>
                         <li><a href="profile.html" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-user"></span><p>Profile</p></a></li>
-                        <li class="droplink"><a href="#" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-envelope"></span><p>Mailbox</p><span class="arrow"></span></a>
-                            <ul class="sub-menu">
-                                <li><a href="inbox.html">Inbox</a></li>
-                                <li><a href="message-view.html">View Message</a></li>
-                                <li><a href="compose.html">Compose</a></li>
-                            </ul>
-                        </li>
+                        <li><a href="/admin/evento" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-user"></span><p>Eventos</p></a></li>
+                        
                     </ul>
                 </div><!-- Page Sidebar Inner -->
             </div><!-- Page Sidebar -->
@@ -303,30 +298,30 @@
     
 
         <!-- Javascripts -->
-        <script src="cms/assets/plugins/jquery/jquery-2.1.3.min.js"></script>
-        <script src="cms/assets/plugins/jquery-ui/jquery-ui.min.js"></script>
-        <script src="cms/assets/plugins/pace-master/pace.min.js"></script>
-        <script src="cms/assets/plugins/jquery-blockui/jquery.blockui.js"></script>
-        <script src="cms/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-        <script src="cms/assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-        <script src="cms/assets/plugins/switchery/switchery.min.js"></script>
-        <script src="cms/assets/plugins/uniform/jquery.uniform.min.js"></script>
-        <script src="cms/assets/plugins/offcanvasmenueffects/js/classie.js"></script>
-        <script src="cms/assets/plugins/offcanvasmenueffects/js/main.js"></script>
-        <script src="cms/assets/plugins/waves/waves.min.js"></script>
-        <script src="cms/assets/plugins/3d-bold-navigation/js/main.js"></script>
-        <script src="cms/assets/plugins/waypoints/jquery.waypoints.min.js"></script>
-        <script src="cms/assets/plugins/jquery-counterup/jquery.counterup.min.js"></script>
-        <script src="cms/assets/plugins/toastr/toastr.min.js"></script>
-        <script src="cms/assets/plugins/flot/jquery.flot.min.js"></script>
-        <script src="cms/assets/plugins/flot/jquery.flot.time.min.js"></script>
-        <script src="cms/assets/plugins/flot/jquery.flot.symbol.min.js"></script>
-        <script src="cms/assets/plugins/flot/jquery.flot.resize.min.js"></script>
-        <script src="cms/assets/plugins/flot/jquery.flot.tooltip.min.js"></script>
-        <script src="cms/assets/plugins/curvedlines/curvedLines.js"></script>
-        <script src="cms/assets/plugins/metrojs/MetroJs.min.js"></script>
-        <script src="cms/assets/js/modern.js"></script>
-        <script src="cms/assets/js/pages/dashboard.js"></script>
+        <script src="/cms/assets/plugins/jquery/jquery-2.1.3.min.js"></script>
+        <script src="/cms/assets/plugins/jquery-ui/jquery-ui.min.js"></script>
+        <script src="/cms/assets/plugins/pace-master/pace.min.js"></script>
+        <script src="/cms/assets/plugins/jquery-blockui/jquery.blockui.js"></script>
+        <script src="/cms/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+        <script src="/cms/assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+        <script src="/cms/assets/plugins/switchery/switchery.min.js"></script>
+        <script src="/cms/assets/plugins/uniform/jquery.uniform.min.js"></script>
+        <script src="/cms/assets/plugins/offcanvasmenueffects/js/classie.js"></script>
+        <script src="/cms/assets/plugins/offcanvasmenueffects/js/main.js"></script>
+        <script src="/cms/assets/plugins/waves/waves.min.js"></script>
+        <script src="/cms/assets/plugins/3d-bold-navigation/js/main.js"></script>
+        <script src="/cms/assets/plugins/waypoints/jquery.waypoints.min.js"></script>
+        <script src="/cms/assets/plugins/jquery-counterup/jquery.counterup.min.js"></script>
+        <script src="/cms/assets/plugins/toastr/toastr.min.js"></script>
+        <script src="/cms/assets/plugins/flot/jquery.flot.min.js"></script>
+        <script src="/cms/assets/plugins/flot/jquery.flot.time.min.js"></script>
+        <script src="/cms/assets/plugins/flot/jquery.flot.symbol.min.js"></script>
+        <script src="/cms/assets/plugins/flot/jquery.flot.resize.min.js"></script>
+        <script src="/cms/assets/plugins/flot/jquery.flot.tooltip.min.js"></script>
+        <script src="/cms/assets/plugins/curvedlines/curvedLines.js"></script>
+        <script src="/cms/assets/plugins/metrojs/MetroJs.min.js"></script>
+        <script src="/cms/assets/js/modern.js"></script>
+        <script src="/cms/assets/js/pages/dashboard.js"></script>
 
         @yield('scripts')
         

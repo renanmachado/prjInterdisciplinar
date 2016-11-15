@@ -23,5 +23,6 @@ class CmsController extends Controller
         return view('cms.pages.dashboard');
     }
 
+
     //
 }
