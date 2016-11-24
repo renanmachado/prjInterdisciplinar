@@ -1496,7 +1496,7 @@ h5 {
 /* Modals */
 
 .modal {
-    z-index: 9999;
+    z-index: 99999999;
 }
 
 .modal-content {

@@ -313,14 +313,15 @@
         <script src="/cms/assets/plugins/waves/waves.min.js"></script>
         <script src="/cms/assets/plugins/3d-bold-navigation/js/main.js"></script> 
 
-
         <script src="/cms/assets/plugins/jquery-mockjax-master/jquery.mockjax.js"></script>
         <script src="/cms/assets/plugins/moment/moment.js"></script>
         <script src="/cms/assets/plugins/datatables/js/jquery.datatables.min.js"></script>
         <script src="/cms/assets/plugins/x-editable/bootstrap3-editable/js/bootstrap-editable.js"></script>
         <script src="/cms/assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
         <script src="/cms/assets/js/modern.js"></script>
-        <script src="/cms/assets/js/pages/table-data.js"></script>      
+        <script src="/cms/assets/js/pages/table-data.js"></script>
+        <script src="/cms/assets/plugins/bootbox.min.js"></script>
+        <script src="/cms/assets/js/remove.js"></script> 
 
         @yield('scripts')
         

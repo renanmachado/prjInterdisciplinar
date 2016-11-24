@@ -54,7 +54,7 @@
 			                            <td class = "text-right" style="width:15%" >
 			                            	{!! Form::open(array('url' => 'admin/sala/excluir', 'class' => 'register-edit')) !!}
 			                                {!! Form::hidden('id', $r->Id_Sala, array('class' => 'register-id')) !!}
-			                                <button type="button" style="float:right;margin:2px" class="btn btn-danger vitrine-products-remove"><i class="glyphicon glyphicon-remove"></i></button>
+			                                <button type="button" style="float:right;margin:2px" class="btn btn-danger remove-item"><i class="glyphicon glyphicon-remove"></i></button>
 			                                {!! Form::close() !!}
 			                                <a class="btn btn-primary" style="float:right;margin:2px"  href="{{URL::to('/')}}/admin/sala/editar/{{$r->Id_Sala}}"><i class="glyphicon glyphicon-edit"></i></a>                                        		
 			                            </td>

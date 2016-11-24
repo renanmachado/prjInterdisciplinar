@@ -60,8 +60,8 @@ class AlunoController extends Controller
     public function destroy()
     {
         $input = Request::all();
-        $this->aluno->where('RA', $input['RA'])->delete();
+        $this->aluno->where('RA', $input['id'])->delete();
 
-        return response()->json([]);
+        return response()->json(['success' => true], 200, []);
     }
 }

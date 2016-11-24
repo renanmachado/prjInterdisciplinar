@@ -64,8 +64,8 @@ class SalaController extends Controller
     public function destroy()
     {
         $input = Request::all();
-        $this->sala->where('Id_Sala', $input['Id_Sala'])->delete();
+        $this->sala->where('Id_Sala', $input['id'])->delete();
 
-        return response()->json([]);
+        return response()->json(['success' => true], 200, []);
     }
 }

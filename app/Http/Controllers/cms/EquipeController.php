@@ -60,8 +60,8 @@ class EquipeController extends Controller
     public function destroy()
     {
         $input = Request::all();
-        $this->equipe->where('Id_Equipe', $input['Id_Equipe'])->delete();
+        $this->equipe->where('Id_Equipe', $input['id'])->delete();
 
-        return response()->json([]);
+        return response()->json(['success' => true], 200, []);
     }
 }

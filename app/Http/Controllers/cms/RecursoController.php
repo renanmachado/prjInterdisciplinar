@@ -60,8 +60,8 @@ class RecursoController extends Controller
     public function destroy()
     {
         $input = Request::all();
-        $this->recurso->where('Id_Recurso', $input['Id_Recurso'])->delete();
+        $this->recurso->where('Id_Recurso', $input['id'])->delete();
 
-        return response()->json([]);
+       return response()->json(['success' => true], 200, []);
     }
 }
