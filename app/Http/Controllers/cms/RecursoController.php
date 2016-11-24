@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\cms;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests;
+use Request;
 use App\Models\Recurso;
 
 class RecursoController extends Controller
@@ -32,35 +32,35 @@ class RecursoController extends Controller
     public function create()
     {
         $recurso = $this->recurso;
-        return redirect('/admin/recurso/editar/' . $recurso->id);
+        return view('cms.pages.recurso.form', compact('recurso'));
     }
 
     public function save()
     {
         $errors = [];
         $input  = Request::all();
-        $recurso = $this->recurso->where('id', $input['id'])->first();
+        $recurso = $this->recurso->firstOrNew(['Id_Recurso' => $input['Id_Recurso']]);
         $recurso->fill($input);
 
         if ($recurso->save()) {
             return redirect('admin/recurso');
         } else {
-            return view('cms.pages.recurso.form', compact($recurso, $errors));    
+            return view('cms.pages.recurso.form', compact('recurso', 'errors'));    
         }
     }
 
     public function edit($id = null)
     {
-        $input  = Request::all();
-        $recurso = $this->recurso->where('id', $input['id'])->first();
+        $input   = Request::all();
+        $recurso = $this->recurso->where('Id_Recurso', $id)->first();
         
-        return view('cms.pages.recurso.form', compact($recurso));
+        return view('cms.pages.recurso.form', compact('recurso'));
     }
 
     public function destroy()
     {
         $input = Request::all();
-        $this->recurso->where('id', $input['id'])->delete();
+        $this->recurso->where('Id_Recurso', $input['Id_Recurso'])->delete();
 
         return response()->json([]);
     }

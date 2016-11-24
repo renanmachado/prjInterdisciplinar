@@ -14,7 +14,7 @@ Route::group(['prefix' => 'admin'], function() {
 		Route::get('/', 'cms\EventoController@index');
 		Route::get('/cadastrar', 'cms\EventoController@create');
 		Route::get('/editar/{id}', 'cms\EventoController@edit');
-		Route::post('/salvar', 'cms\EventoController@edit');
+		Route::post('/salvar', 'cms\EventoController@save');
 		Route::post('/excluir', 'cms\EventoController@edit');
 	});
 
@@ -27,7 +27,7 @@ Route::group(['prefix' => 'admin'], function() {
 		Route::get('/', 'cms\PalestraController@index');
 		Route::get('/cadastrar', 'cms\PalestraController@create');
 		Route::get('/editar/{id}', 'cms\PalestraController@edit');
-		Route::post('/salvar', 'cms\PalestraController@edit');
+		Route::post('/salvar', 'cms\PalestraController@save');
 		Route::post('/excluir', 'cms\PalestraController@edit');
 	});
 
@@ -35,7 +35,7 @@ Route::group(['prefix' => 'admin'], function() {
 		Route::get('/', 'cms\PalestranteController@index');
 		Route::get('/cadastrar', 'cms\PalestranteController@create');
 		Route::get('/editar/{id}', 'cms\PalestranteController@edit');
-		Route::post('/salvar', 'cms\PalestranteController@edit');
+		Route::post('/salvar', 'cms\PalestranteController@save');
 		Route::post('/excluir', 'cms\PalestranteController@edit');
 	});
 
@@ -43,7 +43,7 @@ Route::group(['prefix' => 'admin'], function() {
 		Route::get('/', 'cms\SalaController@index');
 		Route::get('/cadastrar', 'cms\SalaController@create');
 		Route::get('/editar/{id}', 'cms\SalaController@edit');
-		Route::post('/salvar', 'cms\SalaController@edit');
+		Route::post('/salvar', 'cms\SalaController@save');
 		Route::post('/excluir', 'cms\SalaController@edit');
 	});
 
@@ -51,7 +51,7 @@ Route::group(['prefix' => 'admin'], function() {
 		Route::get('/', 'cms\AlunoController@index');
 		Route::get('/cadastrar', 'cms\AlunoController@create');
 		Route::get('/editar/{id}', 'cms\AlunoController@edit');
-		Route::post('/salvar', 'cms\AlunoController@edit');
+		Route::post('/salvar', 'cms\AlunoController@save');
 		Route::post('/excluir', 'cms\AlunoController@edit');
 	});
 
@@ -59,7 +59,7 @@ Route::group(['prefix' => 'admin'], function() {
 		Route::get('/', 'cms\EquipeController@index');
 		Route::get('/cadastrar', 'cms\EquipeController@create');
 		Route::get('/editar/{id}', 'cms\EquipeController@edit');
-		Route::post('/salvar', 'cms\EquipeController@edit');
+		Route::post('/salvar', 'cms\EquipeController@save');
 		Route::post('/excluir', 'cms\EquipeController@edit');
 	});
 
@@ -67,7 +67,7 @@ Route::group(['prefix' => 'admin'], function() {
 		Route::get('/', 'cms\RecursoController@index');
 		Route::get('/cadastrar', 'cms\RecursoController@create');
 		Route::get('/editar/{id}', 'cms\RecursoController@edit');
-		Route::post('/salvar', 'cms\RecursoController@edit');
+		Route::post('/salvar', 'cms\RecursoController@save');
 		Route::post('/excluir', 'cms\RecursoController@edit');
 	});
 

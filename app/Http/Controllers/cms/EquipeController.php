@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\cms;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests;
+use Request;
 use App\Models\Equipe;
 
 class EquipeController extends Controller
@@ -32,35 +32,35 @@ class EquipeController extends Controller
     public function create()
     {
         $equipe = $this->equipe;
-        return redirect('/admin/equipe/editar/' . $equipe->id);
+        return view('cms.pages.equipe.form', compact('equipe'));
     }
 
     public function save()
     {
         $errors = [];
         $input  = Request::all();
-        $equipe = $this->equipe->where('id', $input['id'])->first();
+        $equipe = $this->equipe->firstOrNew(['Id_Equipe' => $input['Id_Equipe']]);
         $equipe->fill($input);
 
         if ($equipe->save()) {
             return redirect('admin/equipe');
         } else {
-            return view('cms.pages.equipe.form', compact($equipe, $errors));    
+            return view('cms.pages.equipe.form', compact('equipe', 'errors'));    
         }
     }
 
     public function edit($id = null)
     {
         $input  = Request::all();
-        $equipe = $this->equipe->where('id', $input['id'])->first();
+        $equipe = $this->equipe->where('Id_Equipe', $id)->first();
         
-        return view('cms.pages.equipe.form', compact($equipe));
+        return view('cms.pages.equipe.form', compact('equipe'));
     }
 
     public function destroy()
     {
         $input = Request::all();
-        $this->equipe->where('id', $input['id'])->delete();
+        $this->equipe->where('Id_Equipe', $input['Id_Equipe'])->delete();
 
         return response()->json([]);
     }

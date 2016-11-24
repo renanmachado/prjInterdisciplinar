@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\cms;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests;
+use Request;
 use App\User;
 use Auth;
 

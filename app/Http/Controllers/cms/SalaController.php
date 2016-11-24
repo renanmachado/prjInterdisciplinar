@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\cms;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests;
+use Request;
 use App\Models\Sala;
 
 class SalaController extends Controller
@@ -31,36 +31,40 @@ class SalaController extends Controller
     
     public function create()
     {
-        $sala = $this->sala;
-        return redirect('/admin/sala/editar/' . $sala->id);
+        $sala    = $this->sala;
+        $options = ['SIM' => 'Sim', 'NAO' => 'Não' ];
+        
+        return view('cms.pages.sala.form', compact('sala', 'options'));
     }
 
     public function save()
     {
-        $errors = [];
-        $input  = Request::all();
-        $sala = $this->sala->where('id', $input['id'])->first();
+        $errors  = [];
+        $input   = Request::all();
+        $options = ['SIM' => 'Sim', 'NAO' => 'Não' ];
+        
+        $sala = $this->sala->firstOrNew(['Id_Sala' => $input['Id_Sala']]);
         $sala->fill($input);
 
         if ($sala->save()) {
             return redirect('admin/sala');
         } else {
-            return view('cms.pages.sala.form', compact($sala, $errors));    
+            return view('cms.pages.sala.form', compact('sala', 'options', 'errors'));   
         }
     }
 
     public function edit($id = null)
     {
-        $input  = Request::all();
-        $sala = $this->sala->where('id', $input['id'])->first();
+        $sala    = $this->sala->where('Id_Sala', $id)->first();
+        $options = ['SIM' => 'Sim', 'NAO' => 'Não' ];  
         
-        return view('cms.pages.sala.form', compact($sala));
+        return view('cms.pages.sala.form', compact('sala', 'options'));
     }
 
     public function destroy()
     {
         $input = Request::all();
-        $this->sala->where('id', $input['id'])->delete();
+        $this->sala->where('Id_Sala', $input['Id_Sala'])->delete();
 
         return response()->json([]);
     }

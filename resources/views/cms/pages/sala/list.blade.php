@@ -20,6 +20,7 @@
 	<div id="main-wrapper">
 		<div class="row">
         	<div class="col-md-12">
+        		<a href="/admin/sala/cadastrar" class="btn fright btn-info" style="margin-bottom:10px;" type="button"><i class="fa fa-plus"></i>&nbsp;&nbsp;Novo registro</a>
 				<div class="panel panel-white">
 		            <div class="panel-heading clearfix">
 		                <h4 class="panel-title">Salas</h4>

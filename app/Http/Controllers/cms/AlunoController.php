@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\cms;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests;
+use Request;
 use App\Models\Aluno;
 
 class AlunoController extends Controller
@@ -32,35 +32,35 @@ class AlunoController extends Controller
     public function create()
     {
         $aluno = $this->aluno;
-        return redirect('/admin/aluno/editar/' . $aluno->id);
+        return view('cms.pages.aluno.form', compact('aluno'));
     }
 
     public function save()
     {
         $errors = [];
         $input  = Request::all();
-        $aluno = $this->aluno->where('id', $input['id'])->first();
+        $aluno  = $this->aluno->firstOrNew(['RA' => $input['id']]);
         $aluno->fill($input);
 
         if ($aluno->save()) {
             return redirect('admin/aluno');
         } else {
-            return view('cms.pages.aluno.form', compact($aluno, $errors));    
+            return view('cms.pages.aluno.form', compact('aluno', 'errors'));  
         }
     }
 
     public function edit($id = null)
     {
         $input  = Request::all();
-        $aluno = $this->aluno->where('id', $input['id'])->first();
+        $aluno = $this->aluno->where('RA', $id)->first();
         
-        return view('cms.pages.aluno.form', compact($aluno));
+        return view('cms.pages.aluno.form', compact('aluno'));
     }
 
     public function destroy()
     {
         $input = Request::all();
-        $this->aluno->where('id', $input['id'])->delete();
+        $this->aluno->where('RA', $input['RA'])->delete();
 
         return response()->json([]);
     }

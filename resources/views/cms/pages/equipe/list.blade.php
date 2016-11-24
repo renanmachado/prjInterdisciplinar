@@ -20,6 +20,7 @@
 	<div id="main-wrapper">
 		<div class="row">
         	<div class="col-md-12">
+				<a href="/admin/equipe/cadastrar" class="btn fright btn-info" style="margin-bottom:10px;" type="button"><i class="fa fa-plus"></i>&nbsp;&nbsp;Novo registro</a>
 				<div class="panel panel-white">
 		            <div class="panel-heading clearfix">
 		                <h4 class="panel-title">Equipes</h4>
@@ -52,10 +53,10 @@
 			                            <td>{{$r->Email}}</td>
 			                            <td class = "text-right" style="width:15%" >
 			                            	{!! Form::open(array('url' => 'admin/equipe/excluir', 'class' => 'register-edit')) !!}
-			                                {!! Form::hidden('id', $r->Id_Evento, array('class' => 'register-id')) !!}
+			                                {!! Form::hidden('id', $r->Id_Equipe, array('class' => 'register-id')) !!}
 			                                <button type="button" style="float:right;margin:2px" class="btn btn-danger vitrine-products-remove"><i class="glyphicon glyphicon-remove"></i></button>
 			                                {!! Form::close() !!}
-			                                <a class="btn btn-primary" style="float:right;margin:2px"  href="{{URL::to('/')}}/admin/equipe/editar/{{$r->Id_Evento}}"><i class="glyphicon glyphicon-edit"></i></a>                                        		
+			                                <a class="btn btn-primary" style="float:right;margin:2px"  href="{{URL::to('/')}}/admin/equipe/editar/{{$r->Id_Equipe}}"><i class="glyphicon glyphicon-edit"></i></a>                                        		
 			                            </td>
 			                        </tr>
 			                        @endforeach

@@ -6,7 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Equipe extends Model {
 
-	protected $table = 'Equipe';
-	protected $fillable = ['Id_Equipe', 'Nome', 'Email', 'Telefone', 'Senha'];
+	protected $table      = 'Equipe';
+	protected $fillable   = ['Id_Equipe', 'Nome', 'Email', 'Telefone', 'Senha'];
+	protected $primaryKey = "Id_Equipe";
+	public $timestamps    = false;
 		
 }
