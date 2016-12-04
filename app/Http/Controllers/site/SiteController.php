@@ -18,7 +18,7 @@ class SiteController extends Controller
 
     public function index()
     {
-        return redirect('/admin');
+        return view("site/index");
     }
 
     //

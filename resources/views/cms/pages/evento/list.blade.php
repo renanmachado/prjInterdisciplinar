@@ -52,7 +52,7 @@
 			                            <td>{{$r->status->Descricao}}</td>
 			                            <td class = "text-right" style="width:15%" >
 			                            	{!! Form::open(array('url' => 'admin/evento/excluir', 'class' => 'register-edit')) !!}
-			                                {!! Form::hidden('id', $r->Id_Evento, array('class' => 'register-id')) !!}
+			                                {!! Form::hidden('Id_Evento', $r->Id_Evento, array('class' => 'register-id')) !!}
 			                                <button type="button" style="float:right;margin:2px" class="btn btn-danger remove-item"><i class="glyphicon glyphicon-remove"></i></button>
 			                                {!! Form::close() !!}
 			                                <a class="btn btn-primary" style="float:right;margin:2px"  href="{{URL::to('/')}}/admin/evento/editar/{{$r->Id_Evento}}"><i class="glyphicon glyphicon-edit"></i></a>                                        		

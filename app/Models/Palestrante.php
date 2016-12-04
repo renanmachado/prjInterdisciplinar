@@ -8,6 +8,5 @@ class Palestrante extends Model {
 
 	protected $table = 'Palestrante';
 	protected $fillable = ['Id_Palestrante', 'Nome', 'Minicurriculo', 'Foto'];
-
-    
+	   
 }
