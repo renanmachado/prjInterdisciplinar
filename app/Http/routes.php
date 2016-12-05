@@ -16,6 +16,7 @@ Route::group(['prefix' => 'admin'], function() {
 		Route::get('/editar/{id}', 'cms\EventoController@edit');
 		Route::post('/salvar', 'cms\EventoController@save');
 		Route::post('/excluir', 'cms\EventoController@destroy');
+		Route::post('/upload', ['as' =>'admin.evento.upload', 'uses' => 'cms\EventoController@upload']);
 	});
 
 	Route::group(['prefix' => 'minha-conta'], function() {     
@@ -29,6 +30,7 @@ Route::group(['prefix' => 'admin'], function() {
 		Route::get('/editar/{id}', 'cms\PalestraController@edit');
 		Route::post('/salvar', 'cms\PalestraController@save');
 		Route::post('/excluir', 'cms\PalestraController@destroy');
+		Route::post('/upload', ['as' =>'admin.palestra.upload', 'uses' => 'cms\PalestraController@upload']);
 	});
 
 	Route::group(['prefix' => 'palestrante'], function() {     
@@ -37,6 +39,7 @@ Route::group(['prefix' => 'admin'], function() {
 		Route::get('/editar/{id}', 'cms\PalestranteController@edit');
 		Route::post('/salvar', 'cms\PalestranteController@save');
 		Route::post('/excluir', 'cms\PalestranteController@destroy');
+		Route::post('/upload', ['as' =>'admin.palestrante.upload', 'uses' => 'cms\PalestranteController@upload']);
 	});
 
 	Route::group(['prefix' => 'sala'], function() {     
@@ -91,6 +94,7 @@ Route::group(['prefix' => 'admin'], function() {
 // ROUTES FOR SITE
 Route::group(['prefix' => '/'], function() {
 	Route::get('/', 'site\SiteController@index');
+	Route::get('/evento/{id}', 'site\SiteController@evento');
 });
 
 //Route::get('/home', 'HomeController@index');

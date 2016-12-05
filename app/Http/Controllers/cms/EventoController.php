@@ -4,6 +4,7 @@ namespace App\Http\Controllers\cms;
 
 use App\Http\Controllers\Controller;
 use Request;
+use Input;
 use App\Models\Evento;
 use App\Models\Status;
 
@@ -24,9 +25,7 @@ class EventoController extends Controller
 
     public function index()
     {   
-
         $eventos  = $this->evento->get();
-
         return view('cms.pages.evento.list', compact('eventos'));
     }
 
@@ -49,8 +48,9 @@ class EventoController extends Controller
         $input['Dt_Final_Execucao']           = date('Y/m/d', strtotime($input['Dt_Final_Execucao']));
         $input['Dt_Final_Disponibilidade']    = date('Y/m/d', strtotime($input['Dt_Final_Disponibilidade']));
 
-        $evento = $this->evento->where('Id_Evento', $input['Id_Evento'])->first();
+        $evento = $this->evento->firstOrNew(['Id_Evento' => $input['Id_Evento']]);
         $evento->fill($input);
+
         $status = Status::get()->lists('Descricao', 'Id_Status')->toArray();
 
         if ($evento->save()) {
@@ -77,7 +77,18 @@ class EventoController extends Controller
         return response()->json(['success' => true], 200, []);
     }
 
-    public function uplaod(){
-
+    public function upload() 
+    {
+        if(Request::hasFile('file')) {
+          //upload an image to the /img/tmp directory and return the filepath.
+          $file = Request::file('file');
+          $tmpFilePath = '/uploads/eventos/';
+          $tmpFileName = time() . '-' . $file->getClientOriginalName();
+          $file = $file->move(public_path() . $tmpFilePath, $tmpFileName);
+          $path = $tmpFilePath . $tmpFileName;
+          return response()->json(array('path'=> $path, 'input_name' => Request::get("input-name")), 200);
+        } else {
+          return response()->json(false, 200);
+        }
     }
 }

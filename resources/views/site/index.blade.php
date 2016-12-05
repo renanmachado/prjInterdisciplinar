@@ -48,7 +48,7 @@
 						<li><a href="our-speaker.html">Nossos Palestrantes</a></li>
 					</ul>
 				</li>
-			</ul>#da251c
+			</ul>
 		</nav>
 		<div class="col-right">
 			<ul class="header-social">

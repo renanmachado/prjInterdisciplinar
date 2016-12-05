@@ -19,7 +19,7 @@ $(document).on('click', '.remove-item', function(el){
             if (result) {
                 var btn = $(_this),
                         form = btn.parent('form');
-
+                        
                 $.post(form.attr('action'), form.serialize(), function (data) {
                     if (data.success) {
                         btn.parents('tr').remove();

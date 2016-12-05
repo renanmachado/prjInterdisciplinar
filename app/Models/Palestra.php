@@ -7,7 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Palestra extends Model {
 
 	protected $table = 'Palestra';
-	protected $fillable = ['Id_Palestra', 'Titulo ', 'DataHora', 'Imagem', 'Descricao', 'Conteudo', 'Id_Evento', 'Id_Sala' ];
+	protected $fillable = ['Id_Palestra', 'DataHora', 'Titulo','Imagem', 'Descricao', 'Conteudo', 'Id_Evento', 'Id_Sala' ];
+	protected $primaryKey = "Id_Palestra";
+	public $timestamps    = false;
 	
     public function evento() {
         return $this->hasOne('App\Models\Evento', 'Id_Evento', 'Id_Evento');

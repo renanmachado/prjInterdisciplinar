@@ -5,6 +5,11 @@
 @stop
 
 @section('styles')
+<style type="text/css">
+    .dz-image-preview {
+        display: none;
+    }
+</style>
 @stop
 
 @section('content')
@@ -25,8 +30,26 @@
 		                <h4 class="panel-title">Evento</h4>
 		            </div>
 		            <div class="panel-body">
-		            	{!! Form::open(array('url' => 'admin/evento/salvar', 'class' => 'form-horizontal', 'files'=>true)) !!}
+                        {!! Form::open(array('route' => 'admin.evento.upload', 'method' => 'POST', 'id' => 'my-dropzone', 'class' => 'form-horizontal form single-dropzone', 'files' => true)) !!}
+                            {!! Form::hidden('input-name','Imagem' ) !!}
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label">Capa</label>
+                                <div class="col-sm-4">   
+                                    <div id="img-thumb-preview">
+                                        @if(empty($evento->Imagem))
+                                            <img style="max-width:200px;margin-bottom:4px;" id="img-thumb" class="user size-lg img-thumbnail" src="/cms/assets/images/default-image.png">
+                                        @else
+                                            <img style="max-width:200px;margin-bottom:4px;" id="img-thumb" class="user size-lg img-thumbnail" src="{{$evento->Imagem}}">
+                                        @endif
+                                    </div>
+                                    <button id="upload-submit" style="width: 200px" class="btn btn-default margin-t-5"><i class="fa fa-upload"></i> Upload</button>       
+                                </div>        
+                            </div>
+                        {!! Form::close() !!}
+
+		            	{!! Form::open(array('url' => 'admin/evento/salvar', 'class' => 'form-horizontal')) !!}
         				{!! Form::hidden('Id_Evento', $evento->Id_Evento) !!}
+                        {!! Form::hidden('Imagem', $evento->Imagem) !!}
                             <div class="form-group">
                                 <label class="col-sm-1 control-label">Nome</label>
                                 <div class="col-sm-4">   
@@ -67,12 +90,10 @@
                                 {!! Form::text('Dt_Final_Disponibilidade', date("m/d/Y", strtotime($evento->Dt_Final_Disponibilidade)), array('class'=>'form-control date-picker')) !!}
                                 </div>
                             </div>
-                            
-
                             <a href="/admin/evento" class="btn btn-lg btn-default">Cancelar</a>
                             <button type="submit" style="float:right;" class="btn btn-lg btn-primary">Salvar</button>
 
-                        {!! Form::close() !!}	    
+                        {!! Form::close() !!}	   
 		            </div>
 		        </div>
 		    </div>
@@ -81,8 +102,7 @@
 @stop
 
 @section('scripts')
-
-<script src="/cms/assets/js/datepicker-PT-BR.js"></script> 
-<script></script>
-
+<script src="/cms/assets/js/datepicker-PT-BR.js"></script>
+<script src="/cms/assets/plugins/dropzone/dropzone.min.js"></script>
+<script src="/cms/assets/js/dropzone-single.js"></script>
 @stop
