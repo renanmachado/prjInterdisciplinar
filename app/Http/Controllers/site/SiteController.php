@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\site;
 
 use App\Http\Controllers\Controller;
+use App\Models\Evento;
 
 class SiteController extends Controller
 {
@@ -11,14 +12,22 @@ class SiteController extends Controller
      *
      * @return void
      */
-    public function __construct()
+    private $evento;
+    private $perpage = 12;
+
+    public function __construct(Evento $evento)
     {
         //
+        $this->evento = $evento;
     }
 
     public function index()
     {
-        return view("site/index");
+        $cont      = 0;
+        $eventos   = $this->evento->paginate($this->perpage);
+        
+        return view("site/index", compact('eventos', "cont"));
+
     }
 
     //

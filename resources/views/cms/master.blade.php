@@ -7,9 +7,9 @@
         
         <meta content="width=device-width, initial-scale=1" name="viewport"/>
         <meta charset="UTF-8">
-        <meta name="description" content="Admin Dashboard Template" />
-        <meta name="keywords" content="admin,dashboard" />
-        <meta name="author" content="Steelcoders" />
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+        <meta name="author" content="" />
         
         <!-- Styles -->
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
@@ -219,7 +219,7 @@
                     </div>
                     <ul class="menu accordion-menu">
                         <li class=""><a href="/admin" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-home"></span><p>Dashboard</p></a></li>
-                        <li class="{{ preg_match("/admin\/minha-conta/",Route::getCurrentRoute()->getPath()) ? 'active' : '' }}"> <a href="/admin/minha-conta" class="waves-effect waves-button"><span class="menu-icon  glyphicon glyphicon-user"></span><p>Minha Conta</p></a></li>
+                       {{--  <li class="{{ preg_match("/admin\/minha-conta/",Route::getCurrentRoute()->getPath()) ? 'active' : '' }}"> <a href="/admin/minha-conta" class="waves-effect waves-button"><span class="menu-icon  glyphicon glyphicon-user"></span><p>Minha Conta</p></a></li> --}}
                         <li class="{{ preg_match("/admin\/evento/",Route::getCurrentRoute()->getPath()) ? 'active' : '' }}"> <a href="/admin/evento" class="waves-effect waves-button"><span class="menu-icon  icon-calendar "></span><p>Eventos</p></a></li>
                         <li class="{{ preg_match("/admin\/palestra/",Route::getCurrentRoute()->getPath()) ? 'active' : '' }}"> <a href="/admin/palestra" class="waves-effect waves-button"><span class="menu-icon icon-pin"></span><p>Palestras</p></a></li>
                         <li class="{{ preg_match("/admin\/sala/",Route::getCurrentRoute()->getPath()) ? 'active' : '' }}"> <a href="/admin/sala" class="waves-effect waves-button"><span class="menu-icon icon-home"></span><p>Salas</p></a></li>

@@ -94,7 +94,16 @@ Route::group(['prefix' => 'admin'], function() {
 // ROUTES FOR SITE
 Route::group(['prefix' => '/'], function() {
 	Route::get('/', 'site\SiteController@index');
-	Route::get('/evento/{id}', 'site\SiteController@evento');
+	
+	Route::group(['prefix' => '/evento'], function() {
+		Route::get('{id}', 'site\EventoController@evento');
+	});
+
+	Route::group(['prefix' => '/palestrantes'], function() {
+		Route::get('/', 'site\PalestranteController@palestrante');
+	});
+	Route::group(['prefix' => '/palestra'], function() {
+		Route::get('solicitar-certificado', 'site\PalestraController@certificado');
+	});
 });
 
-//Route::get('/home', 'HomeController@index');

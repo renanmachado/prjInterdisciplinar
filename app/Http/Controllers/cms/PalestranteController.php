@@ -72,8 +72,10 @@ class PalestranteController extends Controller
           $file = Request::file('file');
           $tmpFilePath = '/uploads/palestrantes/';
           $tmpFileName = time() . '-' . $file->getClientOriginalName();
+
           $file = $file->move(public_path() . $tmpFilePath, $tmpFileName);
           $path = $tmpFilePath . $tmpFileName;
+          //dd($path ." - ". $tmpFileName);
           return response()->json(array('path'=> $path, 'input_name' => Request::get("input-name")), 200);
         } else {
           return response()->json(false, 200);

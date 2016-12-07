@@ -1,7 +1,7 @@
 @extends('site/master')
 
 @section('title')
-	Home
+	Palestrantes
 @stop
 
 @section('styles')
@@ -17,8 +17,8 @@
     </strong>
     <nav class="kode-nav" id="navigation">
         <ul>
-            <li class="active"><a href="/">Home</a>
-            <li><a href="">Palestrantes</a>
+            <li class=""><a href="/">Home</a>
+            <li class="active"><a href="">Palestrantes</a>
                 <ul>
                     <li><a href="/palestrantes">Nossos Palestrantes</a></li>
                 </ul>
@@ -52,12 +52,15 @@
         <!--ROW START-->
         <div class="row">
             <div class="col-md-6 col-sm-6">
-                <h2>Listagem de eventos</h2>
+                <h2>Nossos palestrantes</h2>
             </div>
             <div class="col-md-6 col-sm-6">
                 <ul>
                     <li>
                         <a href="/"><i class="fa fa-home"></i>Home</a>
+                    </li>
+                    <li>
+                        <a href="/palestrantes"><i class="fa fa-angle-right"></i>Palestrantes</a>
                     </li>
                 </ul>
             </div>
@@ -65,70 +68,47 @@
         <!--ROW END-->
     </div>
 </div>
-<!--Kode-our-speaker-heading End-->
-<!--KODE-EVENT-SHEDULE START-->	
-<div class="kode-blog-style-2">
+
+<div class="kode-speaker-frame">
 	<div class="container">
-		@foreach($eventos as $key => $value)
-			@if($cont == 0)
-			<div class="row">
-			@endif
-				<div class="col-md-4">
-					<div class="kode-event-blog3">
-						<figure>
-							<img src="{{$value->Imagem}}" alt=""/>
-							<div class="kode-fig-capstion">
-								<a href="#">{{$value->Nome}}</a>
-								<p>Evento</p>
-							</div>
-						</figure>
-						<div class="kode-thumb-caption">
-							<h4>{{$value->Nome}}</h4>
-							<ul>
-								<li><a href="/evento/{{$value->Id_Evento}}"><i class="fa fa-calendar"></i>{{date('d/m/Y', strtotime($value->Dt_Inicial_Execucao))}}</a></li>
-								<li><a href="/evento/{{$value->Id_Evento}}"><i class="fa fa-location-arrow"></i>Participe</a></li>
-							</ul>
-							<span><a href="/evento/{{$value->Id_Evento}}">Leia mais</a></span>
-						</div>
-					</div>
-				</div>
-			<?php $cont++;?>	
-			@if($cont == 3)
-			<?php $cont = 0;?>
-			</div>
-			@endif
-		@endforeach
-		<!--PAGINATION ROW END-->
-		@if ($eventos->lastPage() > 1)
+		<div class="kf_heading_1">
+            <h2>Nossos Palestrantes</h2>
+            <span>Palestrantes</span>
+        </div>
 		<div class="row">
-			<div class="col-md-12">
-				<!---PAGINATIOn START-->
-				<div class="pag">
-					<ul class="pagination">
-						<li class="{{ ($eventos->currentPage() == 1) ? ' disabled' : '' }}">
-						  <a href="{{ $eventos->url(1) }}" aria-label="Previous">
-							<span aria-hidden="true">Prev</span>
-						  </a>
-						</li>
-						@for ($i = 1; $i <= $eventos->lastPage(); $i++)
-					        <li class="{{ ($eventos->currentPage() == $i) ? ' active' : '' }}">
-					            <a href="{{ $eventos->url($i) }}">{{ $i }}</a>
-					        </li>
-					    @endfor
-						<li class="{{ ($eventos->currentPage() == $eventos->lastPage()) ? ' disabled' : '' }}">
-						  <a href="{{ $eventos->url($eventos->currentPage()+1) }}" aria-label="Next">
-							<span aria-hidden="true">Next</span>
-						  </a>
-						</li>
-					</ul>
+			<div id="kode-speaker-causel" class="owl-carousel">
+                @foreach($palestrantes as $palestrante)
+				<div class="kode-newspeaker">
+					<div class="speaker-photo">
+						<img src="{{$palestrante->Foto}}" alt="">
+					</div>
+					<div class="new-ourspeaker">
+						<h3>{{$palestrante->Nome}} / <span>Palestrante</span></h3>
+						{{-- <ul class="newpseaker-media">
+							<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+							<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+							<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+							<li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
+							<li><a href="#"><i class="fa fa-life-ring"></i></a></li>
+						</ul> --}}
+					</div>
+					<div class="new-ourspeaker over-state">
+						<h3>{{$palestrante->Nome}} / <span>Palestrante</span></h3>
+						<p>{{$palestrante->Minicurriculo}}</p>
+						<ul class="newpseaker-media">
+							{{-- <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+							<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+							<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+							<li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
+							<li><a href="#"><i class="fa fa-life-ring"></i></a></li> --}}
+						</ul>
+					</div>
+					<!-- kode-new speaker over state End -->
 				</div>
-				<!--PAGINATION END-->
+                @endforeach    
 			</div>
 		</div>
-		@endif
 	</div>
-</div>
-<!--KODE-EVENT-SHEDULE END-->	
 </div>
 @stop
 

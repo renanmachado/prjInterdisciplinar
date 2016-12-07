@@ -14,6 +14,10 @@ class Evento extends Model {
 	public function status() {
         return $this->hasOne('App\Models\Status', 'Id_Status', 'Id_Status');
     }
+
+    public function palestras() {
+    	return $this->hasMany('App\Models\Palestra', 'Id_Evento', 'Id_Evento')->groupBy("DataHora");
+    }
     
     public function rules()
 	{

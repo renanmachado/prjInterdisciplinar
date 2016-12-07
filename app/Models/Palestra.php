@@ -14,4 +14,8 @@ class Palestra extends Model {
     public function evento() {
         return $this->hasOne('App\Models\Evento', 'Id_Evento', 'Id_Evento');
     }
+    
+	public function palestrantes() {
+        return $this->belongsToMany('App\Models\Palestrante', 'Ministra', 'Id_Palestra', 'Id_Palestrante');
+    }
 }

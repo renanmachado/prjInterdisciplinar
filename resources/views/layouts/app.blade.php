@@ -39,9 +39,9 @@
                 </button>
 
                 <!-- Branding Image -->
-                <a class="navbar-brand" href="{{ url('/') }}">
+               {{--  <a class="navbar-brand" href="{{ url('/') }}">
                     QI
-                </a>
+                </a> --}}
             </div>
 
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
@@ -55,13 +55,12 @@
                     <!-- Authentication Links -->
                     @if (Auth::guest())
                         <li><a href="{{ url('/admin/login') }}">Login</a></li>
-                        <li><a href="{{ url('/admin/registrar') }}">Registrar</a></li>
+                        {{-- <li><a href="{{ url('/admin/registrar') }}">Registrar</a></li> --}}
                     @else
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                 {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
-
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="{{ url('/admin/sair') }}"><i class="fa fa-btn fa-sign-out"></i>Sair</a></li>
                             </ul>
