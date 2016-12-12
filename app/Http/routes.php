@@ -104,6 +104,8 @@ Route::group(['prefix' => '/'], function() {
 	});
 	Route::group(['prefix' => '/palestra'], function() {
 		Route::get('solicitar-certificado', 'site\PalestraController@certificado');
+		Route::get('confirmar-presenca/{id}', 'site\PalestraController@confirmar_presenca');
+		Route::post('confirmar-presenca/salvar', 'site\PalestraController@confirmar_presenca_salvar');
 	});
 });
 

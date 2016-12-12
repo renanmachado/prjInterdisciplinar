@@ -119,7 +119,7 @@
                                             
                                                 <div class="kf_new_conf_btn_link">
                                                     <a href="">{{$horas[$palestra->Hora]}}</a>
-                                                    <a href="/evento/palestra/{{$palestra->Id_Palestra}}"><i class="fa fa-play"></i>Confirmar Presença</a>
+                                                    <a href="/palestra/confirmar-presenca/{{$palestra->Id_Palestra}}"><i class="fa fa-play"></i>Confirmar Presença</a>
                                                 </div>
                                             </div>
                                         </div>

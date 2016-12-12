@@ -1,7 +1,7 @@
 @extends('site/master')
 
 @section('title')
-	Certificado
+	Confirmar Presença
 @stop
 
 @section('styles')
@@ -23,7 +23,7 @@
                     <li><a href="/palestrantes">Nossos Palestrantes</a></li>
                 </ul>
             </li>
-            <li class="active"><a href="">Certificados</a>
+            <li class=""><a href="">Certificados</a>
                 <ul>
                     <li><a href="/palestra/solicitar-certificado">Solicitar Certificado</a></li>
                 </ul>
@@ -52,7 +52,7 @@
         <!--ROW START-->
         <div class="row">
             <div class="col-md-6 col-sm-6">
-                <h2>Certificado</h2>
+                <h2>Confirmar Presença - {{$palestra->Titulo}}</h2>
             </div>
             <div class="col-md-6 col-sm-6">
                 <ul>
@@ -60,7 +60,7 @@
                         <a href="/"><i class="fa fa-home"></i>Home</a>
                     </li>
                     <li>
-                        <a href="/palestra/solicitar-certificado"><i class="fa fa-angle-right"></i>Certificado</a>
+                        <a href="/palestra/confirmar-presenca/{{$palestra->Id_Palestra}}"><i class="fa fa-angle-right"></i>Confirmar Presença - {{$palestra->Titulo}}</a>
                     </li>
                 </ul>
             </div>
@@ -73,19 +73,29 @@
     <div class="row">
         <div class="col-md-12">
             <div class="kode-contact-heading">
-                <h4>Solicita certificado</h4>
+                <h4>Confirmar Presença</h4>
                 <span class="border-left"></span>
             </div>
             <div class="kode-contact-area col-md-12">
-                <form method="post" class="comments-form row" id="contactform">
+                {!! Form::open(array('url' => '/palestra/confirmar-presenca/salvar', 'class' => 'comments-form row', 'method' => 'post')) !!}
+                    {!! Form::hidden('Id_Palestra', $palestra->Id_Palestra) !!}
+                     <div class="hidden-me" id="contact_form_responce">
+                        <p class="error type-2"> 
+                            @if (isset($msgs) && !empty($msgs))
+                                @foreach($msgs as $msg)
+                                    {{$msg}}<br>
+                                @endforeach
+                            @endif
+                        </p>
+                     </div>
                     <div class="row">
                         <div class="col-md-6 col-sm-6">
                             <input type="text" id="RA" name="RA" class="required" placeholder="RA">
                         </div>
                         
                     </div>
-                    <button class="thbg-color" value="Send Reply">Solicitar</button>
-                </form>                         
+                    <button class="thbg-color" value="Send Reply">Confirmar</button>
+                {!! Form::close() !!}                       
             </div>
         </div>
     </div>

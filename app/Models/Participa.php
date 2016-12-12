@@ -8,6 +8,7 @@ class Participa extends Model {
 
 	protected $table = 'Participa';
 	protected $fillable = ['RA', 'Id_Palestra'];
+	public $timestamps    = false;
 
     
 }
