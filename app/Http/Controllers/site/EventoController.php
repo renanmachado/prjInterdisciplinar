@@ -53,6 +53,11 @@ class EventoController extends Controller
     {
         $evento       = $this->evento->where("Id_Evento", $id)->first();
         $horas        = $this->horas;
+
+        if (is_null($evento)) {
+            return view('site/404');
+        }
+
         $palestras    = Palestra::select('Palestra.*', 
                             DB::raw('DATE_FORMAT(DataHora, "%d.%m.%Y") as Data'),
                             DB::raw('DATE_FORMAT(DataHora, "%T") as Hora') 

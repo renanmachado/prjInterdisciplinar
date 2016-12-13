@@ -73,11 +73,12 @@
     <div class="row">
         <div class="col-md-12">
             <div class="kode-contact-heading">
-                <h4>Solicitar Certificado</h4>
+                <h4>Solicitar Certificado - {{$aluno->Nome}}</h4>
                 <span class="border-left"></span>
             </div>
             <div class="kode-contact-area col-md-12">
-                {!! Form::open(array('url' => '/palestra/solicitar-certificado', 'class' => 'comments-form row', 'method' => 'post')) !!}
+                {!! Form::open(array('url' => '/palestra/solicitar-certificado/gerar', 'class' => 'comments-form row', 'method' => 'post')) !!}
+                    {!! Form::hidden('RA', $aluno->RA) !!}
                      <div class="hidden-me" id="contact_form_responce">
                         <p class="error type-2"> 
                             @if (isset($msgs) && !empty($msgs))
@@ -89,9 +90,8 @@
                      </div>
                     <div class="row">
                         <div class="col-md-6 col-sm-6">
-                            <input type="text" id="RA" name="RA" class="required" placeholder="RA">
+                            {!! Form::select('Id_Palestra', $palestras, '', array('class'=>'form-control', 'style' => 'margin-bottom:10px')) !!}
                         </div>
-                        
                     </div>
                     <button class="thbg-color" value="Send Reply">Confirmar</button>
                 {!! Form::close() !!}                       

@@ -102,8 +102,12 @@ Route::group(['prefix' => '/'], function() {
 	Route::group(['prefix' => '/palestrantes'], function() {
 		Route::get('/', 'site\PalestranteController@palestrante');
 	});
+
 	Route::group(['prefix' => '/palestra'], function() {
 		Route::get('solicitar-certificado', 'site\PalestraController@certificado');
+		Route::post('solicitar-certificado', 'site\PalestraController@solicitar_certificado');
+		Route::get('solicitar-certificado/participante/{id}', 'site\PalestraController@solicitar_certificado_participante');
+		Route::post('solicitar-certificado/gerar', 'site\PalestraController@solicitar_certificado_gerar');
 		Route::get('confirmar-presenca/{id}', 'site\PalestraController@confirmar_presenca');
 		Route::post('confirmar-presenca/salvar', 'site\PalestraController@confirmar_presenca_salvar');
 	});
