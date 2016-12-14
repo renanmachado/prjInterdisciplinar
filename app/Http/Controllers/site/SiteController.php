@@ -13,7 +13,7 @@ class SiteController extends Controller
      * @return void
      */
     private $evento;
-    private $perpage = 12;
+    private $perpage = 9;
 
     public function __construct(Evento $evento)
     {
